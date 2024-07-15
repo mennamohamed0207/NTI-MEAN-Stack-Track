@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Recipe Website</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='recipe.css'>
+    <script src='recipe.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <input type='text' name='title' id='input' />
+        <input type='button' onclick=" data = await fetchData(document.getElementById('input').value); console.log(data);" value="Search" />
+    </div>
+    <div id="recipeContainer">
+        <table>
+        </table>
+    </div>
+</body>
+
+</html>

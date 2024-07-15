@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+}
+
+.container {
+
+    align-items: center;
+    display: flex;
+    background-color: blue;
+    width: 500px;
+    height: 200px;
+    padding-left: 40%;
+    padding-right: 40%;
+
+}
