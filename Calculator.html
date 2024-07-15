@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Calculator.css'>
+    <script src='Calculator.js'></script>
+</head>
+
+<body>
+    <div id="main">
+        <div id="result">
+        </div>
+        <div id="screen">
+
+        </div>
+
+        <table id="buttons">
+            <tr>
+                <td class="button" onclick="
+                changeResult(1);
+                changeDisplayed(1);
+                        displayedValue=1; console.log(displayedValue);">1</td>
+                <td class="button" onclick="
+                changeResult(2);
+                changeDisplayed(2);
+                        displayedValue=2; console.log(displayedValue);">2</td>
+                <td class="button" onclick="
+                changeResult(3);
+                changeDisplayed(3)">3</td>
+                <td class="button"
+                    onclick="
+                    changeResult('+');
+                    operation='+'; a=Number(document.getElementById('screen').innerText); clearScreen(); console.log(a); ">
+                    +</td>
+            </tr>
+            <tr>
+                <td class="button" onclick="
+                changeResult(4);
+                    changeDisplayed(4)">4</td>
+                <td class="button" onclick="
+                changeResult(5);changeDisplayed(5)">5</td>
+                <td class="button" onclick="changeResult(6);changeDisplayed(6)">6</td>
+                <td class="button"
+                    onclick=" changeResult('-'); operation='-'; a=Number(document.getElementById('screen').innerText);console.log(a); clearScreen();">
+                    -</td>
+            </tr>
+            <tr>
+                <td class="button" onclick="changeResult(7);changeDisplayed(7)">7</td>
+                <td class="button" onclick="changeResult(8);changeDisplayed(8)">8</td>
+                <td class="button" onclick="changeResult(9);changeDisplayed(9)">9</td>
+                <td class="button"
+                    onclick="
+                    changeResult('*');
+                    operation='*'; a=Number(document.getElementById('screen').innerText);console.log(a); clearScreen();">
+                    *</td>
+            </tr>
+            <tr>
+                <td class="button" onclick="
+                changeResult(0);changeDisplayed(0)">0</td>
+                <td class="button"
+                    onclick="
+                    changeResult('=');
+                    b=Number(document.getElementById('screen').innerText);console.log(b); let result=calculator(a,b,operation); number=result; clearScreen();     console.log(result);
+changeDisplayed(result); ">
+                    =</td>
+                <td class="button" onclick="clearScreen();">c</td>
+                <td class="button"
+                    onclick="
+                    changeResult('/');operation='/';   a=Number(document.getElementById('screen').innerText);console.log(a); clearScreen();">
+                    /</td>
+            </tr>
+        </table>
+        <script>
+            function changeDisplayed(number) {
+                document.getElementById("screen").innerText += number;
+            }
+            function changeResult(digit) {
+                document.getElementById("result").innerText += digit;
+            }
+            function clearScreen() {
+                document.getElementById("screen").innerText = " ";
+
+            }
+
+        </script>
+
+    </div>
+</body>
+
+</html>
