@@ -67,7 +67,7 @@
                     b=Number(document.getElementById('screen').innerText);console.log(b); let result=calculator(a,b,operation); number=result; clearScreen();     console.log(result);
 changeDisplayed(result); ">
                     =</td>
-                <td class="button" onclick="clearScreen();">c</td>
+                <td class="button" onclick="clearScreen();clearResult();">c</td>
                 <td class="button"
                     onclick="
                     changeResult('/');operation='/';   a=Number(document.getElementById('screen').innerText);console.log(a); clearScreen();">
@@ -83,6 +83,10 @@ changeDisplayed(result); ">
             }
             function clearScreen() {
                 document.getElementById("screen").innerText = " ";
+
+            }
+            function clearResult() {
+                document.getElementById("result").innerText = " ";
 
             }
 
