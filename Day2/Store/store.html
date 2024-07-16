@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Store</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='store.css'>
+</head>
+
+<body>
+    <div class="searchSection">
+
+        <Font class="font">My Store</Font>
+        <div class="searchBar">
+            <form id="search-form">
+            <label for="Categories">All Categories</label>
+
+            <select name="Categories" id="categories">
+                <option value="all">All Categories</option>
+                <option value="menclothing">men's clothing</option>
+                <option value="jewelery">jewelery</option>
+                <option value="electronics">electronics</option>
+                <option value="womenclothing">women's clothing</option>
+            </select>
+            <input type='text' id='searchInput' placeholder='Search...'>
+            <button id='searchBtn'>Search</button>
+        </form>
+        </div>
+    </div>
+    <main>
+        <section id="product-list">
+            <div id="product-content"></div>
+        </section>
+    </main>
+    <script src='store.js'></script>
+
+</body>
+
+</html>

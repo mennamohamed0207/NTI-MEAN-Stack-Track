@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <input type='text' name='title' id='input' />
-        <input type='button' onclick=" data = await fetchData(document.getElementById('input').value); console.log(data);" value="Search" />
+        <input type='button' onclick=" fetchData(document.getElementById('input').value); console.log(data);" value="Search" />
     </div>
     <div id="recipeContainer">
         <table>

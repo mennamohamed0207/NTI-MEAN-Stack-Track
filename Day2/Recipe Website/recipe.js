@@ -1,3 +1,4 @@
+ let data;
  async function fetchData(title){
     const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${title}`;
     try{
@@ -5,7 +6,7 @@
         if(!response.ok){
             throw Error(response.statusText);
         }else{
-            const data=await response.json();
+             data=await response.json();
             console.log(data["meals"]);
             return data;
         }
@@ -13,4 +14,3 @@
         throw Error(e.message);
     }
 }
-let data=await fetchData("chicken");
