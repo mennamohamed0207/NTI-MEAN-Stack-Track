@@ -7,6 +7,7 @@ const form=document.getElementById('search-form');
 const sorting=document.getElementById('sortBy');
 const minPrice=document.getElementById('minPrice');
 const maxPrice=document.getElementById('maxPrice');
+const cart=document.getElementById('cart');
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -86,8 +87,14 @@ function displayProducts(products){
         <img src="${product.image}" alt="${product.title}">
         <h2 class="product-title">${product.title}</h2>
         <p class="product-price"><br/><br/><br/>$${product.price}</p>
+        <input value="Add to Cart" type="button" class="btn" onclick='addToCart("${product.title}","${product.price}")' />
         </div>`
     }
     })}
-
+    
 });
+function addToCart(product_title, product_price){
+    cart.innerHTML +=`<li class="cart-font">${product_title} - $${product_price}</li>`;
+   console.log(product_title, product_price);
+ 
+}
