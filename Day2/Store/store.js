@@ -1,5 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', () => {
 const mainProducts=document.getElementById('product-list');
 const category=document.getElementById('categories');
 const form=document.getElementById('search-form');
@@ -7,6 +6,9 @@ const sorting=document.getElementById('sortBy');
 const minPrice=document.getElementById('minPrice');
 const maxPrice=document.getElementById('maxPrice');
 const cart=document.getElementById('cart');
+const cartTotal=document.getElementById('cartTotal');
+const cartTotalPrice=document.getElementById('cartTotalPrice');
+document.addEventListener('DOMContentLoaded', () => {
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -24,6 +26,8 @@ form.addEventListener('submit', async (event) => {
 async function fetchData(filter){
     if(filter=="all")
     {
+        cartTotal.innerHTML=`<Font class="cart-font">Total Items: 0</Font>`;
+
         const url=`https://fakestoreapi.com/products`;
         try{
             const response=await fetch(url);
@@ -93,16 +97,24 @@ function displayProducts(products){
     
 });
 var cart_arr=new Array();
+var total_price=0;
 function addToCart(product_title, product_price,id){
     cart.innerHTML +=`<li value="${id}" class="cart-font">${product_title} - $${product_price}
-    <input type="button" name="remove" onclick="removeItem(${id})" value="Remove" />
+    <input type="button" name="remove" onclick="removeItem(${id},${product_price})" value="Remove" />
     </li>`;
    console.log(product_title, product_price);
    cart_arr.push(id);
+   total_price+=parseFloat(product_price);
+   cartTotal.innerHTML=`<Font class="cart-font">Total Items: ${cart_arr.length}</Font>`;
+   cartTotalPrice.innerHTML=`<Font class="cart-font">Total Price: ${total_price}</Font>`;
+   console.log(cart_arr);
  
 }
-function removeItem(id)
+function removeItem(id,price)
  {
-    cart_arr = cart_arr.filter(item => item== id);
+    cart_arr = cart_arr.filter(item => item == id);
     document.querySelector(`#cart li[value="${id}"]`).remove();
+    cartTotal.innerHTML=`<Font class="cart-font">Total Items: ${cart_arr.length}</Font>`;
+    total_price-=parseFloat(price);
+    cartTotalPrice.innerHTML=`<Font class="cart-font">Total Price: ${(total_price)}</Font>`;
  }
