@@ -5,6 +5,8 @@ const mainProducts=document.getElementById('product-list');
 const category=document.getElementById('categories');
 const form=document.getElementById('search-form');
 const sorting=document.getElementById('sortBy');
+const minPrice=document.getElementById('minPrice');
+const maxPrice=document.getElementById('maxPrice');
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -73,15 +75,19 @@ function displayProducts(products){
             return 0;
         });
     }
+    const minPrice_val = parseFloat(minPrice.value.trim());
+    const maxPrice_val = parseFloat(maxPrice.value.trim());
+    console.log(minPrice_val, maxPrice_val);
     products.forEach(product => {
-       
+       if((product.price > minPrice_val&&product.price < maxPrice_val)||isNaN(minPrice_val)  ||isNaN(maxPrice_val)) 
+        {
         // productItem.classList.add('product-item');
         mainProducts.innerHTML+=`<div class="product-card">
         <img src="${product.image}" alt="${product.title}">
         <h2 class="product-title">${product.title}</h2>
         <p class="product-price"><br/><br/><br/>$${product.price}</p>
-        </div>
-` 
+        </div>`
+    }
     })}
 
 });
