@@ -1,6 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-
 const mainProducts=document.getElementById('product-list');
 const category=document.getElementById('categories');
 const form=document.getElementById('search-form');
@@ -87,14 +86,23 @@ function displayProducts(products){
         <img src="${product.image}" alt="${product.title}">
         <h2 class="product-title">${product.title}</h2>
         <p class="product-price"><br/><br/><br/>$${product.price}</p>
-        <input value="Add to Cart" type="button" class="btn" onclick='addToCart("${product.title}","${product.price}")' />
+        <input value="Add to Cart" type="button" class="btn" onclick='addToCart("${product.title}","${product.price}","${product.id}")' />
         </div>`
     }
     })}
     
 });
-function addToCart(product_title, product_price){
-    cart.innerHTML +=`<li class="cart-font">${product_title} - $${product_price}</li>`;
+var cart_arr=new Array();
+function addToCart(product_title, product_price,id){
+    cart.innerHTML +=`<li value="${id}" class="cart-font">${product_title} - $${product_price}
+    <input type="button" name="remove" onclick="removeItem(${id})" value="Remove" />
+    </li>`;
    console.log(product_title, product_price);
+   cart_arr.push(id);
  
 }
+function removeItem(id)
+ {
+    cart_arr = cart_arr.filter(item => item== id);
+    document.querySelector(`#cart li[value="${id}"]`).remove();
+ }
