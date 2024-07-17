@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,17 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='store.css'>
 </head>
-
 <body>
     <div class="searchSection">
-
         <Font class="font">My Store</Font>
         <div class="searchBar">
             <form id="search-form">
                 <input type='text' id='searchInput' placeholder='Search...'>
-
                 <label for="Categories">All Categories</label>
-
                 <select name="Categories" id="categories">
                     <option value="all">All Categories</option>
                     <option value="menclothing">men's clothing</option>
@@ -28,7 +23,6 @@
                 </select>
                 <input type='number' id='minPrice' placeholder='Min Price...'>
                 <input type='number' id='maxPrice' placeholder='Max Price...'>
-
                 <button id='searchBtn'>Apply Filters</button><br />
                 <select name="Sort" id="sortBy">
                     <option value="general">Sort By ...</option>
@@ -39,12 +33,9 @@
         </div>
         <div>
             <h2 class="font" style="font-size: 25px;">Shopping Cart</h2>
-           <ul id="cart">
-
-           </ul>
-           <div id="cartTotal"></div>
-           <div id="cartTotalPrice"></div>
-          
+            <ul id="cart"></ul>
+            <div id="cartTotal"></div>
+            <div id="cartTotalPrice"></div>
         </div>
     </div>
     <main>
@@ -52,18 +43,7 @@
             <div id="product-content"></div>
         </section>
     </main>
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-      </div>
+    <div class="pagination"></div>
     <script src='store.js'></script>
-
 </body>
-
 </html>

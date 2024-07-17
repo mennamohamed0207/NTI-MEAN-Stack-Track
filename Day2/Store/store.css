@@ -83,23 +83,23 @@ section {
     margin-left: 150px;
     margin-top: 20px;
 }
-/* Pagination links */
-.pagination a {
-    color: black;
-    float: left;
+.pagination button {
     padding: 8px 16px;
-    text-decoration: none;
+    margin: 2px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
     transition: background-color .3s;
-  }
-  
-  /* Style the active/current link */
-  .pagination a.active {
+}
+
+.pagination button.active {
     background-color: dodgerblue;
     color: white;
-  }
-  
-  /* Add a grey background color on mouse-over */
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+}
+
+.pagination button:hover:not(.active) {
+    background-color: #ccc;
+}
 
   .btn{
     width: 200px;
