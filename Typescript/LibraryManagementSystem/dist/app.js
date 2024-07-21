@@ -26,7 +26,7 @@ function showCard(booksShown) {
         <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
         <p class="card-text">Rating : ${booksShown[i].rating}</p>
         <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-primary">Delete</button>
+        <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
       </div>
     </div>
     </td>
@@ -43,7 +43,7 @@ function showCard(booksShown) {
     <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i].rating}</p>
     <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-primary">Delete</button>
+    <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
   </div>
 </div>
 </td>
@@ -56,12 +56,16 @@ function showCard(booksShown) {
     <p class="card-text">Publication Date : ${booksShown[i + 1].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i + 1].rating}</p>
     <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-primary">Delete</button>
+    <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
     </td>
   </div>
   </div>
         </tr>`;
     }
+}
+function deleteBook(i) {
+    books.splice(i, 1);
+    showCard(books);
 }
 function getFictionBooks() {
     let fiction = document.getElementById("fiction");
@@ -199,6 +203,16 @@ function filterRating() {
         }
         showCard(ratingBooks);
     }
+}
+function addBook() {
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author-add").value;
+    let genre = document.getElementById("genre-add").value;
+    let publicationDate = document.getElementById("date-add").value;
+    let rating = Number(document.getElementById("rating-add").value);
+    let newBook = { title, author, genre, publicationDate, rating };
+    books.push(newBook);
+    showCard(books);
 }
 showCard(books);
 getTotalBooks();

@@ -29,7 +29,7 @@ function showCard(booksShown: Book[]) {
         <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
         <p class="card-text">Rating : ${booksShown[i].rating}</p>
         <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-primary">Delete</button>
+        <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
       </div>
     </div>
     </td>
@@ -46,7 +46,7 @@ function showCard(booksShown: Book[]) {
     <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i].rating}</p>
     <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-primary">Delete</button>
+    <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
   </div>
 </div>
 </td>
@@ -59,13 +59,18 @@ function showCard(booksShown: Book[]) {
     <p class="card-text">Publication Date : ${booksShown[i + 1].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i + 1].rating}</p>
     <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-primary">Delete</button>
+    <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
     </td>
   </div>
   </div>
         </tr>`
 
     }
+}
+function deleteBook(i: number) {
+
+    books.splice(i, 1);
+    showCard(books);
 }
 function getFictionBooks() {
 
@@ -217,6 +222,18 @@ function filterRating() {
         }
         showCard(ratingBooks);
     }
+}
+function addBook()
+{
+
+    let title = (document.getElementById("title") as HTMLInputElement).value;
+    let author = (document.getElementById("author-add") as HTMLInputElement).value;
+    let genre = (document.getElementById("genre-add") as HTMLInputElement).value;
+    let publicationDate = (document.getElementById("date-add") as HTMLInputElement).value;
+    let rating:number = Number((document.getElementById("rating-add") as HTMLInputElement).value);
+    let newBook:Book =  {title,author,genre,publicationDate,rating};
+    books.push(newBook);
+    showCard(books);
 }
 showCard(books);
 getTotalBooks();
