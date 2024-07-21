@@ -1,0 +1,18 @@
+table{
+    border: 2px solid black;
+    margin-left: 100px;
+    width: 300;
+}
+
+.mydiv{
+    padding: 100px;
+
+}
+body{
+    background-color: rgb(242, 242, 244);
+}
+
+button 
+{
+    margin-left: 45px;
+}
