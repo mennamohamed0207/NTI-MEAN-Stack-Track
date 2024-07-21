@@ -19,15 +19,15 @@
     <br />
     <br />
     <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Filter by Author">
+        <input type="text" class="form-control" id="author" placeholder="Filter by Author">
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Filter by Genre">
+        <input type="text" class="form-control" id="genre" placeholder="Filter by Genre">
     </div>
     <div class="mb-3">
-        <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Filter by Rating">
+        <input type="number" class="form-control" id="rating" placeholder="Filter by Rating">
     </div>
-    <button class="btn btn-primary" onclick="">Apply filters</button>
+    <button class="btn btn-primary" onclick="filterAuthor();filterGenre();filterRating();">Apply filters</button>
     <button class="btn btn-primary" onclick="sortByTitle()">Sort by Titles</button>
     <button class="btn btn-primary" onclick="sortByPublicationDate()">Sort by Publication Date</button>
     <button class="btn btn-primary" onclick="sortByRating()">Sort by Rating</button>

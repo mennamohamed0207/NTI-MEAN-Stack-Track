@@ -159,6 +159,47 @@ function sortByRating() {
     });
     showCard(books);
 }
+function filterAuthor() {
+    let author = document.getElementById("author");
+    let authorName = author.value;
+    if (authorName != "") {
+        let authorBooks = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].author == authorName) {
+                authorBooks.push(books[i]);
+            }
+        }
+        showCard(authorBooks);
+    }
+}
+function filterGenre() {
+    let genre = document.getElementById("genre");
+    let genreName = genre.value;
+    if (genreName != "") {
+        let genreBooks = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].genre == genreName) {
+                genreBooks.push(books[i]);
+            }
+        }
+        showCard(genreBooks);
+    }
+}
+function filterRating() {
+    let rating = document.getElementById("rating");
+    let ratingValue = (rating.value);
+    if (ratingValue != "") {
+        let ratingComp = parseFloat(ratingValue);
+        console.log(ratingComp);
+        let ratingBooks = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].rating == ratingComp) {
+                ratingBooks.push(books[i]);
+            }
+        }
+        showCard(ratingBooks);
+    }
+}
 showCard(books);
 getTotalBooks();
 getFictionBooks();

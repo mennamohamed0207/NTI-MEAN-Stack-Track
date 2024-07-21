@@ -11,8 +11,8 @@ function getTotalBooks() {
     let total = document.getElementById("totalBooks") as HTMLElement;
     total.innerHTML = books.length.toString();
 }
-function showCard(booksShown:Book[]) {
-    
+function showCard(booksShown: Book[]) {
+
     let table = document.getElementById("mytable") as HTMLElement;
     table.innerHTML = "";
     console.log("hello");
@@ -172,6 +172,51 @@ function sortByRating() {
         return 0;
     });
     showCard(books);
+}
+function filterAuthor() {
+    let author = document.getElementById("author") as HTMLInputElement;
+    let authorName = author.value;
+    if (authorName != "") {
+
+        let authorBooks: Book[] = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].author == authorName) {
+                authorBooks.push(books[i]);
+            }
+        }
+        showCard(authorBooks);
+    }
+}
+function filterGenre() {
+    let genre = document.getElementById("genre") as HTMLInputElement;
+    let genreName = genre.value;
+    if (genreName != "") {
+
+        let genreBooks: Book[] = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].genre == genreName) {
+                genreBooks.push(books[i]);
+            }
+        }
+        showCard(genreBooks);
+    }
+}
+function filterRating() {
+
+    let rating = document.getElementById("rating") as HTMLInputElement;
+    let ratingValue = (rating.value);
+    if (ratingValue != "") {
+        let ratingComp:number = parseFloat(ratingValue);
+        console.log(ratingComp);
+        
+        let ratingBooks: Book[] = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].rating == ratingComp) {
+                ratingBooks.push(books[i]);
+            }
+        }
+        showCard(ratingBooks);
+    }
 }
 showCard(books);
 getTotalBooks();
