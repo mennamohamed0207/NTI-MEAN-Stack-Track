@@ -1,11 +1,24 @@
-<select [(ngModel)]="isActive">
+<!-- <select [(ngModel)]="isActive">
     <option [ngValue]="true">Active</option>
     <option [ngValue]="false">Not Active</option>
 </select>
+<p *ngIf="this.isActive">dir works!</p> -->
 <!-- <button (click)="setIsActive()">Click me</button> -->
-<!--ngIf has condition inside it -->
-<p *ngIf="this.isActive">dir works!</p>
+<!--*ngIf has condition inside it -->
 
-<ul>
-    <li *ngFor="let item of items">{{item}}</li>
-</ul>
+<!-- <ul style="list-style: none;">
+    <ng-container *ngFor="let item of items;let i=index;">
+        <li *ngIf="i!==2 && item !== 'first'">{{i+1}} - {{item}}</li>
+    </ng-container>
+</ul> -->
+<div *ngFor="let tech of techs; let i=index"  [class.active]="tech.isActive" [class.notActive]="!tech.isActive">
+    <h3>{{tech.name}}</h3>
+    <p>{{tech.description}}</p>
+    <img [src]="tech.logo">
+    <br>
+    <button (click)="delete(i)">Delete</button>
+    <br>
+    {{tech.isActive}}
+    <br>
+    <button (click)="tech.isActive=!tech.isActive">{{!tech.isActive ? 'Active' : 'Not Active'}}</button>
+</div>
