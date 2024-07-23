@@ -1,0 +1,11 @@
+<select [(ngModel)]="isActive">
+    <option [ngValue]="true">Active</option>
+    <option [ngValue]="false">Not Active</option>
+</select>
+<!-- <button (click)="setIsActive()">Click me</button> -->
+<!--ngIf has condition inside it -->
+<p *ngIf="this.isActive">dir works!</p>
+
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>

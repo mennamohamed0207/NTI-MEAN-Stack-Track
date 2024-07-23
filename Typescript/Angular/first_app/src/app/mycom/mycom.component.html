@@ -1,0 +1,23 @@
+<!-- Binding 
+1-Interploation -->
+<h1>{{msg}} </h1>
+<p>Using Interpolation</p>
+<img src="{{imageURL}}">
+<h2>{{greeting()}}</h2>
+
+<!-- 2-Property -->
+ <p>Using Property</p>
+<img [src]="imageURL">
+<!-- 3-Event -->
+<button (click)="do()" >Click me </button>
+<!--Two way binding This will make the attribute msg changes when input --> 
+<input  [(ngModel)]="msg">
+<!--CSS-->
+<!--Class Binding we can make condition in class.active to make it active-->
+<div [class.active]="x===10">
+    My div is active
+</div>
+<!--Style Binding-->
+<div [style.color]="x===10?'red':'green'" [style.font-size]="fontSize">
+    My div is active
+</div>
