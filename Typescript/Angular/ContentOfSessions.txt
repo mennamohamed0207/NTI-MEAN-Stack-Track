@@ -1,0 +1,6 @@
+23/7/2024
+Angular
+Directories
+binding
+
+Next Session will be about services and forms ISA

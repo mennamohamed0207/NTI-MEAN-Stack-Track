@@ -19,3 +19,22 @@ tsc -w
 
 # Note
 when put the file in html we put the javascript file
+
+# Commands to run Angluar
+
+## To create a project
+```sh
+ng new <Project Name> --no-standalone
+```
+## To create component
+```sh
+ng g c <Component Name> --no-standalone
+```
+- then you have to change app.component.html to have your component
+## Note:
+ - app.module.ts have the imports modeules
+
+## Angluar Folders
+    - public --> images
+    - index and style are the files that have main style of application
+    

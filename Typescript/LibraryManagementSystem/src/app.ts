@@ -233,16 +233,9 @@ function addBook()
     let rating:number = Number((document.getElementById("rating-add") as HTMLInputElement).value);
     let newBook:Book =  {title,author,genre,publicationDate,rating};
     books.push(newBook);
-    showCard(books);
+    console.log(books);
+    // showCard(books);
 }
-showCard(books);
-getTotalBooks();
-getFictionBooks();
-getNonFictionBooks();
-getFantasyBooks();
-getBooksByAuthorX();
-getBooksByAuthorY();
-getBooksByAuthorZ();
 
 
 

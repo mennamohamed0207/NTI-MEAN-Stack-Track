@@ -15,9 +15,10 @@
 
 <body class="container mt-5">
     <h1><b>Library Management System</b></h1>
-    <a href="AddBook.html"><button class="btn btn-primary" >Add Book</button></a>
+    <button class="btn btn-primary">Add Book</button>
     <br />
     <br />
+   
     <div class="mb-3">
         <input type="text" class="form-control" id="author" placeholder="Filter by Author">
     </div>
@@ -42,14 +43,19 @@
     <ul>
         <li>Fiction : <Font id="fiction"></Font>
         </li>
-        <li>Non-Fiction : <Font id="nonfiction"></Font></li>
-        <li>Fantasy : <Font id="fantasy"></Font></li>
+        <li>Non-Fiction : <Font id="nonfiction"></Font>
+        </li>
+        <li>Fantasy : <Font id="fantasy"></Font>
+        </li>
     </ul>
     <Font>Books by Author : </Font>
     <ul>
-        <li>Author X : <Font id="authorX"></Font></li>
-        <li>Author Y : <Font id="authorY"></Font></li>
-        <li>Authonr Z : <Font id="authorZ"></Font></li>
+        <li>Author X : <Font id="authorX"></Font>
+        </li>
+        <li>Author Y : <Font id="authorY"></Font>
+        </li>
+        <li>Authonr Z : <Font id="authorZ"></Font>
+        </li>
     </ul>
 
     <table id="mytable">
@@ -57,5 +63,15 @@
     </table>
 
     <script src="../dist/app.js"> console.log("hello"); </script>
+    <script>
+        showCard(books);
+        getTotalBooks();
+        getFictionBooks();
+        getNonFictionBooks();
+        getFantasyBooks();
+        getBooksByAuthorX();
+        getBooksByAuthorY();
+        getBooksByAuthorZ();
+    </script>
 
 </body>

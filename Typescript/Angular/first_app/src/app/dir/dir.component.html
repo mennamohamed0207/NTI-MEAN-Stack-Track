@@ -11,7 +11,12 @@
         <li *ngIf="i!==2 && item !== 'first'">{{i+1}} - {{item}}</li>
     </ng-container>
 </ul> -->
-<div *ngFor="let tech of techs; let i=index"  [class.active]="tech.isActive" [class.notActive]="!tech.isActive">
+<!--First Method: -->
+<!--  <div *ngFor="let tech of techs; let i=index"  [ngClass]="{'active': tech.isActive, 'notActive': !tech.isActive}"> -->
+<!--Second Method: -->
+<!-- <div *ngFor="let tech of techs; let i=index"  [style.background-color]="tech.isActive ? 'green' : 'red'"> -->
+<!--Third Method: -->
+<div *ngFor="let tech of techs; let i=index" [class.active]="tech.isActive" [class.notActive]="!tech.isActive">
     <h3>{{tech.name}}</h3>
     <p>{{tech.description}}</p>
     <img [src]="tech.logo">
