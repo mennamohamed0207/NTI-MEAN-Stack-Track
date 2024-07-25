@@ -4,21 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Library Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="container mt-5">
     <h1><b>Library Management System</b></h1>
-    <button class="btn btn-primary">Add Book</button>
+    <button class="btn btn-primary" id="show-form-btn">Add Book</button>
     <br />
     <br />
-   
+
     <div class="mb-3">
         <input type="text" class="form-control" id="author" placeholder="Filter by Author">
     </div>
@@ -36,42 +36,68 @@
     <br />
     <br />
     <h2>Inventory Summary</h2>
-    <Font>Total Books : <Font id="totalBooks"></Font>
-    </Font>
+    <font>Total Books : <font id="totalBooks"></font></font>
     <br />
-    <Font>Books of Genre : </Font>
+    <font>Books of Genre : </font>
     <ul>
-        <li>Fiction : <Font id="fiction"></Font>
-        </li>
-        <li>Non-Fiction : <Font id="nonfiction"></Font>
-        </li>
-        <li>Fantasy : <Font id="fantasy"></Font>
-        </li>
+        <li>Fiction : <font id="fiction"></font></li>
+        <li>Non-Fiction : <font id="nonfiction"></font></li>
+        <li>Fantasy : <font id="fantasy"></font></li>
     </ul>
-    <Font>Books by Author : </Font>
+    <font>Books by Author : </font>
     <ul>
-        <li>Author X : <Font id="authorX"></Font>
-        </li>
-        <li>Author Y : <Font id="authorY"></Font>
-        </li>
-        <li>Authonr Z : <Font id="authorZ"></Font>
-        </li>
+        <li>Author X : <font id="authorX"></font></li>
+        <li>Author Y : <font id="authorY"></font></li>
+        <li>Author Z : <font id="authorZ"></font></li>
     </ul>
 
-    <table id="mytable">
+    <table id="mytable"></table>
 
-    </table>
+    <div id="form-container" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-form">&times;</span>
+            <form id="add-book-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <br/>
+                <br/>
+                <label for="author-add">Author:</label>
+                <input type="text" id="author-add" name="author" required>
+                <br/>
+                <br/>
 
-    <script src="../dist/app.js"> console.log("hello"); </script>
+                <label for="genre-add">Genre:</label>
+                <input type="text" id="genre-add" name="genre" required>
+                <br/>
+                <br/>
+
+                <label for="date-add">Publication Date:</label>
+                <input type="text" id="date-add" name="publicationDate" required>
+                <br/>
+                <br/>
+
+                <label for="rating-add">Rating:</label>
+                <input type="number" id="rating-add" name="rating" required>
+                <br/>
+                <br/>
+
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../dist/app.js"></script>
     <script>
-        showCard(books);
-        getTotalBooks();
-        getFictionBooks();
-        getNonFictionBooks();
-        getFantasyBooks();
-        getBooksByAuthorX();
-        getBooksByAuthorY();
-        getBooksByAuthorZ();
+        document.addEventListener('DOMContentLoaded', () => {
+            showCard(books);
+            getTotalBooks();
+            getFictionBooks();
+            getNonFictionBooks();
+            getFantasyBooks();
+            getBooksByAuthorX();
+            getBooksByAuthorY();
+            getBooksByAuthorZ();
+        });
     </script>
-
 </body>
+</html>

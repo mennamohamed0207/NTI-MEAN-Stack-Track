@@ -6,9 +6,48 @@ let books = [
     { title: "The Catcher in the Rye", author: "Z", genre: "Non-Fiction", publicationDate: "1951", rating: 4.6 },
     { title: "The Lord of the Rings", author: "Z", genre: "Fiction", publicationDate: "1954", rating: 4.9 }
 ];
-function getTotalBooks() {
-    let total = document.getElementById("totalBooks");
-    total.innerHTML = books.length.toString();
+document.addEventListener('DOMContentLoaded', () => {
+    const showFormBtn = document.getElementById('show-form-btn');
+    const closeFormBtn = document.getElementById('close-form');
+    const formContainer = document.getElementById('form-container');
+    const addBookForm = document.getElementById('add-book-form');
+    showFormBtn.addEventListener('click', () => {
+        formContainer.style.display = 'flex';
+        formContainer.style.width = '700px';
+        formContainer.style.height = '800px';
+        formContainer.style.alignItems = 'center';
+        formContainer.style.marginLeft = '300px';
+    });
+    closeFormBtn.addEventListener('click', () => {
+        formContainer.style.display = 'none';
+    });
+    window.onclick = (event) => {
+        if (event.target == formContainer) {
+            formContainer.style.display = 'none';
+        }
+    };
+    addBookForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        addBook();
+        formContainer.style.display = 'none';
+    });
+});
+function addBook() {
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author-add").value;
+    const genre = document.getElementById("genre-add").value;
+    const publicationDate = document.getElementById("date-add").value;
+    const rating = Number(document.getElementById("rating-add").value);
+    const newBook = { title, author, genre, publicationDate, rating };
+    books.push(newBook);
+    showCard(books);
+    getTotalBooks();
+    getFictionBooks();
+    getNonFictionBooks();
+    getFantasyBooks();
+    getBooksByAuthorX();
+    getBooksByAuthorY();
+    getBooksByAuthorZ();
 }
 function showCard(booksShown) {
     let table = document.getElementById("mytable");
@@ -22,7 +61,7 @@ function showCard(booksShown) {
       <div class="card-body">
         <h5 class="card-title">${booksShown[i].title}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">${booksShown[i].author}</h6>
-        <p class="card-text">Genere : ${booksShown[i].genre}</p>
+        <p class="card-text">Genre : ${booksShown[i].genre}</p>
         <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
         <p class="card-text">Rating : ${booksShown[i].rating}</p>
         <button class="btn btn-primary">Edit</button>
@@ -39,7 +78,7 @@ function showCard(booksShown) {
   <div class="card-body">
     <h5 class="card-title">${booksShown[i].title}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">${booksShown[i].author}</h6>
-    <p class="card-text">Genere : ${booksShown[i].genre}</p>
+    <p class="card-text">Genre : ${booksShown[i].genre}</p>
     <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i].rating}</p>
     <button class="btn btn-primary">Edit</button>
@@ -47,25 +86,113 @@ function showCard(booksShown) {
   </div>
 </div>
 </td>
+
 <td>
 <div class="card" style="width: 36rem;">
- <div class="card-body">
+  <div class="card-body">
     <h5 class="card-title">${booksShown[i + 1].title}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">${booksShown[i + 1].author}</h6>
-    <p class="card-text">Genere : ${booksShown[i + 1].genre}</p>
+    <p class="card-text">Genre : ${booksShown[i + 1].genre}</p>
     <p class="card-text">Publication Date : ${booksShown[i + 1].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i + 1].rating}</p>
     <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
-    </td>
+    <button class="btn btn-primary" onclick="deleteBook(${i + 1})">Delete</button>
   </div>
-  </div>
-        </tr>`;
+</div>
+</td>
+</tr>`;
     }
 }
 function deleteBook(i) {
     books.splice(i, 1);
     showCard(books);
+    getTotalBooks();
+    getFictionBooks();
+    getNonFictionBooks();
+    getFantasyBooks();
+    getBooksByAuthorX();
+    getBooksByAuthorY();
+    getBooksByAuthorZ();
+}
+function filterAuthor() {
+    let author = document.getElementById("author");
+    let authorName = author.value;
+    if (authorName != "") {
+        let authorBooks = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].author == authorName) {
+                authorBooks.push(books[i]);
+            }
+        }
+        showCard(authorBooks);
+    }
+}
+function filterGenre() {
+    let genre = document.getElementById("genre");
+    let genreName = genre.value;
+    if (genreName != "") {
+        let genreBooks = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].genre == genreName) {
+                genreBooks.push(books[i]);
+            }
+        }
+        showCard(genreBooks);
+    }
+}
+function filterRating() {
+    let rating = document.getElementById("rating");
+    let ratingValue = (rating.value);
+    if (ratingValue != "") {
+        let ratingComp = parseFloat(ratingValue);
+        console.log(ratingComp);
+        let ratingBooks = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].rating == ratingComp) {
+                ratingBooks.push(books[i]);
+            }
+        }
+        showCard(ratingBooks);
+    }
+}
+function sortByTitle() {
+    books.sort(function (a, b) {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.title) {
+            return 1;
+        }
+        return 0;
+    });
+    showCard(books);
+}
+function sortByPublicationDate() {
+    books.sort(function (a, b) {
+        if (a.publicationDate < b.publicationDate) {
+            return -1;
+        }
+        if (a.publicationDate > b.publicationDate) {
+            return 1;
+        }
+        return 0;
+    });
+    showCard(books);
+}
+function sortByRating() {
+    books.sort(function (a, b) {
+        if (a.rating < b.rating) {
+            return -1;
+        }
+        if (a.rating > b.rating) {
+            return 1;
+        }
+        return 0;
+    });
+    showCard(books);
+}
+function getTotalBooks() {
+    document.getElementById("totalBooks").textContent = books.length.toString();
 }
 function getFictionBooks() {
     let fiction = document.getElementById("fiction");
@@ -126,92 +253,4 @@ function getBooksByAuthorZ() {
         }
     }
     authorZ.innerHTML = authorZBooks.toString();
-}
-function sortByTitle() {
-    books.sort(function (a, b) {
-        if (a.title < b.title) {
-            return -1;
-        }
-        if (a.title > b.title) {
-            return 1;
-        }
-        return 0;
-    });
-    showCard(books);
-}
-function sortByPublicationDate() {
-    books.sort(function (a, b) {
-        if (a.publicationDate < b.publicationDate) {
-            return -1;
-        }
-        if (a.publicationDate > b.publicationDate) {
-            return 1;
-        }
-        return 0;
-    });
-    showCard(books);
-}
-function sortByRating() {
-    books.sort(function (a, b) {
-        if (a.rating < b.rating) {
-            return -1;
-        }
-        if (a.rating > b.rating) {
-            return 1;
-        }
-        return 0;
-    });
-    showCard(books);
-}
-function filterAuthor() {
-    let author = document.getElementById("author");
-    let authorName = author.value;
-    if (authorName != "") {
-        let authorBooks = [];
-        for (let i = 0; i < books.length; i++) {
-            if (books[i].author == authorName) {
-                authorBooks.push(books[i]);
-            }
-        }
-        showCard(authorBooks);
-    }
-}
-function filterGenre() {
-    let genre = document.getElementById("genre");
-    let genreName = genre.value;
-    if (genreName != "") {
-        let genreBooks = [];
-        for (let i = 0; i < books.length; i++) {
-            if (books[i].genre == genreName) {
-                genreBooks.push(books[i]);
-            }
-        }
-        showCard(genreBooks);
-    }
-}
-function filterRating() {
-    let rating = document.getElementById("rating");
-    let ratingValue = (rating.value);
-    if (ratingValue != "") {
-        let ratingComp = parseFloat(ratingValue);
-        console.log(ratingComp);
-        let ratingBooks = [];
-        for (let i = 0; i < books.length; i++) {
-            if (books[i].rating == ratingComp) {
-                ratingBooks.push(books[i]);
-            }
-        }
-        showCard(ratingBooks);
-    }
-}
-function addBook() {
-    let title = document.getElementById("title").value;
-    let author = document.getElementById("author-add").value;
-    let genre = document.getElementById("genre-add").value;
-    let publicationDate = document.getElementById("date-add").value;
-    let rating = Number(document.getElementById("rating-add").value);
-    let newBook = { title, author, genre, publicationDate, rating };
-    books.push(newBook);
-    console.log(books);
-    // showCard(books);
 }
