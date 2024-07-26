@@ -127,6 +127,7 @@ function showCard(booksShown: Book[]) {
         <p class="card-text">Genre : ${booksShown[i].genre}</p>
         <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
         <p class="card-text">Rating : ${booksShown[i].rating}</p>
+        <input type="hidden" id="book-index" value="${i}">
         <button class="btn btn-primary" onclick="showUpdateForm(${i})">Edit</button>
         <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
       </div>

@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeFormBtn = document.getElementById('close-form');
     const formContainer = document.getElementById('form-container');
     const addBookForm = document.getElementById('add-book-form');
+    const closeFormBtnUpdate = document.getElementById('close-form-update');
+    const formContainerUpdate = document.getElementById('form-container-update');
+    const updateBookForm = document.getElementById('update-book-form');
     showFormBtn.addEventListener('click', () => {
         formContainer.style.display = 'flex';
         formContainer.style.width = '700px';
@@ -21,16 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
     closeFormBtn.addEventListener('click', () => {
         formContainer.style.display = 'none';
     });
+    closeFormBtnUpdate.addEventListener('click', () => {
+        formContainerUpdate.style.display = 'none';
+    });
     window.onclick = (event) => {
         if (event.target == formContainer) {
             formContainer.style.display = 'none';
         }
+        if (event.target == formContainerUpdate) {
+            formContainerUpdate.style.display = 'none';
+        }
     };
+    updateBookForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const bookIndex = document.getElementById("book-index").value;
+        updateBook(parseInt(bookIndex));
+        formContainerUpdate.style.display = 'none';
+    });
     addBookForm.addEventListener('submit', (event) => {
         event.preventDefault();
         addBook();
         formContainer.style.display = 'none';
     });
+    showCard(books);
 });
 function addBook() {
     const title = document.getElementById("title").value;
@@ -40,6 +56,38 @@ function addBook() {
     const rating = Number(document.getElementById("rating-add").value);
     const newBook = { title, author, genre, publicationDate, rating };
     books.push(newBook);
+    showCard(books);
+    getTotalBooks();
+    getFictionBooks();
+    getNonFictionBooks();
+    getFantasyBooks();
+    getBooksByAuthorX();
+    getBooksByAuthorY();
+    getBooksByAuthorZ();
+}
+function showUpdateForm(index) {
+    const formContainerUpdate = document.getElementById('form-container-update');
+    formContainerUpdate.style.display = 'flex';
+    formContainerUpdate.style.width = '700px';
+    formContainerUpdate.style.height = '800px';
+    formContainerUpdate.style.alignItems = 'center';
+    formContainerUpdate.style.marginLeft = '300px';
+    const book = books[index];
+    document.getElementById("title-update").value = book.title;
+    document.getElementById("author-update").value = book.author;
+    document.getElementById("genre-update").value = book.genre;
+    document.getElementById("date-update").value = book.publicationDate;
+    document.getElementById("rating-update").value = book.rating.toString();
+    document.getElementById("book-index").value = index.toString();
+    console.log(book);
+}
+function updateBook(index) {
+    const title = document.getElementById("title-update").value;
+    const author = document.getElementById("author-update").value;
+    const genre = document.getElementById("genre-update").value;
+    const publicationDate = document.getElementById("date-update").value;
+    const rating = Number(document.getElementById("rating-update").value);
+    books[index] = { title, author, genre, publicationDate, rating };
     showCard(books);
     getTotalBooks();
     getFictionBooks();
@@ -64,7 +112,8 @@ function showCard(booksShown) {
         <p class="card-text">Genre : ${booksShown[i].genre}</p>
         <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
         <p class="card-text">Rating : ${booksShown[i].rating}</p>
-        <button class="btn btn-primary">Edit</button>
+        <input type="hidden" id="book-index" value="${i}">
+        <button class="btn btn-primary" onclick="showUpdateForm(${i})">Edit</button>
         <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
       </div>
     </div>
@@ -81,7 +130,7 @@ function showCard(booksShown) {
     <p class="card-text">Genre : ${booksShown[i].genre}</p>
     <p class="card-text">Publication Date : ${booksShown[i].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i].rating}</p>
-    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-primary" onclick="showUpdateForm(${i})">Edit</button>
     <button class="btn btn-primary" onclick="deleteBook(${i})">Delete</button>
   </div>
 </div>
@@ -95,7 +144,7 @@ function showCard(booksShown) {
     <p class="card-text">Genre : ${booksShown[i + 1].genre}</p>
     <p class="card-text">Publication Date : ${booksShown[i + 1].publicationDate}</p>
     <p class="card-text">Rating : ${booksShown[i + 1].rating}</p>
-    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-primary" onclick="showUpdateForm(${i + 1})">Edit</button>
     <button class="btn btn-primary" onclick="deleteBook(${i + 1})">Delete</button>
   </div>
 </div>
