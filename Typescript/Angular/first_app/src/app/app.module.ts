@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { MycomComponent } from './mycom/mycom.component';
 import { FormsModule } from '@angular/forms';
 import { DirComponent } from './dir/dir.component';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MycomComponent,
-    DirComponent
+    DirComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
