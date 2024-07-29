@@ -14,8 +14,7 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 700px;
-    margin-top: 20px;
+    width: 400px;
   }
   
   h2 {
@@ -94,20 +93,4 @@
   
   .text-center {
     text-align: center;
-  }
-  input.ng-invalid.ng-touched {
-    border: 2px solid red;
-  }
-  .greenBorder{
-    border: 2px solid green;
-  }
-  .errorEmpty{
-    color: red;
-    font-size: 12px;
-    font-family: sans-serif;
-    padding-left: 20px;
-    padding-top: 5px;
-  }
-  .btn{
-    margin-top: 10px;
   }

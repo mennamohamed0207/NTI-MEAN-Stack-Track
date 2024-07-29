@@ -1,0 +1,26 @@
+<h1>first works!</h1>
+<!-- Interpolation binding for prop & methods-->
+  {{msg}}
+  <br>
+  {{setMSG()}}
+
+  <img src='{{imageURL}}'/>
+
+  <!-- property binding -->
+  <img [src]="image2URL"/>
+<!-- event binding -->
+  <button (click)="do()">Click me</button>
+
+  <br>
+  <!-- two way binding -->
+my data:{{myData}}
+<br>
+  <input [(ngModel)]="myData">
+  <!-- class binding -->
+
+
+<div [class.active]="isActive" *ngIf="x == 10">its active</div>
+
+
+  <!-- style binding -->
+<div [style.font-size]="fontSize">font size</div>

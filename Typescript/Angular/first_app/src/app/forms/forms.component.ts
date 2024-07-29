@@ -7,11 +7,16 @@ import { NgForm } from '@angular/forms';
   styleUrl: './forms.component.css'
 })
 export class FormsComponent {
-  onSubmit(myForm: NgForm) {
-    
+  changeUsername(myForm:NgForm){
     myForm.form.patchValue({
       username: "mynewusername"
     });
+
+  }
+  onSubmit(myForm: NgForm) {
+
+    console.log(myForm.value);
+    
     // myForm.setValue({
     //   about: "",
     //   age
@@ -51,7 +56,6 @@ export class FormsComponent {
     //     :
     //     "mynewusername",
     // });
-    console.log(myForm.value);
 
   }
 }

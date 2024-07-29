@@ -1,0 +1,42 @@
+<!-- Pipes -->
+<!-- make the first letter of every word uppercase -->
+{{title|titlecase}}
+<br />
+
+<!-- make all letters captial -->
+{{name|uppercase}}
+<br />
+
+
+<!-- make all letters small  -->
+{{name|lowercase}}
+<br />
+
+<!-- change date format -->
+{{date|date:'MM/dd/YYYY HH:mm:ss'}}
+
+<br />
+<!-- change date format -->
+{{date|date:'shortDate' }}
+<br />
+<!-- change date format -->
+{{date|date:'longDate'|uppercase }}
+<br />
+<!-- change date format -->
+{{date|date:'fullDate'}}
+<br />
+<!-- Percentage -->
+<!-- 2(before point).2-2(min-max after point) -->
+{{grade|percent :'2.2-2'}}
+<br />
+<!-- Currency -->
+{{price|currency:'USD' :'symbol':'2.2-5' }}
+<br />
+<!-- json pipe to display object     -->
+<p>{{ {name:'ali',age:'10'} | json}}</p>
+<br />
+{{myData|async}}
+<br />
+
+<!-- Custom pipe -->
+<p>{{title | noSpace}}</p>

@@ -28,8 +28,19 @@ ng new <Project Name> --no-standalone
 ```
 ## To create component
 ```sh
-ng g c <Component Name> --no-standalone
+ng g c <Component Name> 
 ```
+## to install jquery
+```sh
+npm install  @popperjs/core 
+npm  i jquery
+```
+
+## to install bootstrap
+```sh
+npm  i bootstrap
+```
+## to use then bootstrap and jquery
 - then you have to change app.component.html to have your component
 ## Note:
  - app.module.ts have the imports modeules

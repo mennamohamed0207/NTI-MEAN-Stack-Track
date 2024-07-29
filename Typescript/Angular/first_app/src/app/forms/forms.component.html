@@ -9,6 +9,7 @@
                 <label for="text">Username</label>
                 <input type="text" placeholder="Username" name="username" ngModel required #username="ngModel">
                 <div class="errorEmpty" *ngIf="username.touched && !username.valid"> Username is required</div>
+                <button type="button" (click)="changeUsername(myForm)" class="btn">Change Username</button>
             </div>
 
             <!-- Password Input -->
@@ -22,12 +23,12 @@
             <!-- Re-type Password Input -->
             <div class="form-group">
                 <label for="password">Re-type Password</label>
-                <input type="password" placeholder="Re-type Password" name="retypePassword" ngModel required
-                    [pattern]="password.value" #retypePassword="ngModel">
+                <input type="password" placeholder="Re-type Password" name="retypePassword" ngModel required>
+                    <!-- [pattern]="password.value" #retypePassword="ngModel">
                 <div class="errorEmpty" *ngIf="(retypePassword.touched && !retypePassword.valid) ">
                     <div *ngIf="retypePassword.errors?.['required']">Retype password is required</div>
                     <div *ngIf="retypePassword.errors?.['pattern']">Passwords must be matched</div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Email Input -->
@@ -58,12 +59,12 @@
             <!-- Telephone Input -->
             <div class="form-group">
                 <label for="tel">Phone NO.</label>
-                <input type="tel" placeholder="Phone NO." name="phone" ngModel required #phone="ngModel"
-                    pattern="^[0-9]{11}$">
+                <input type="tel" placeholder="Phone NO." name="phone" ngModel required #phone="ngModel">
+                    <!-- pattern="^[0-9]{11}$">
                 <div class="errorEmpty" *ngIf="phone.touched && !phone.valid">
                     <div *ngIf="phone.errors?.['required']">Phone number is required</div>
                     <div *ngIf="phone.errors?.['pattern']"> Phone number is not valid</div>
-                </div>
+                </div> -->
             </div>
 
             <!-- File Input -->

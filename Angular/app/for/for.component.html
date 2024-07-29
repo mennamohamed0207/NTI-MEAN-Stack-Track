@@ -1,0 +1,28 @@
+<!-- <ul>
+    <li  >
+       
+    </li>
+</ul> -->
+
+<!-- <div>
+    <div *ngFor="let name of names;let i = index" >
+        <ng-container *ngIf="i !== 0">
+            {{i + 1}} - {{name}}
+        </ng-container>
+    </div>
+</div> -->
+
+<div *ngFor="let tech of myCourse">
+    <div [ngClass]="{'active' : tech.isActive, 'notActive' : !tech.isActive}">
+    <img [src]="tech.imgURL"/>
+    {{tech.name}} / {{tech.desc}}
+    <br>
+   <!-- setActive(tech.id) -->
+<button (click)="tech.isActive = !tech.isActive"> 
+    {{tech.isActive ? 'Not Active' : 'Active'}}
+</button>
+    <br>
+    <button (click)="delete(tech.id)">Delete</button>
+
+</div>
+</div>
