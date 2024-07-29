@@ -28,7 +28,11 @@
             <div class="form-group">
                 <label for="password">Re-type Password</label>
                 <input type="password" placeholder="Re-type Password" name="retypePassword"
-                    formControlName="retypePassword">
+                    formControlName="retypePassword" [ngClass]="{'ng-invalid': myForm.hasError('matchPasswords', ['retypePassword'])&& myForm.get('retypePassword')?.touched}">
+                    <div *ngIf="myForm.get('retypePassword')?.touched">
+                        <div  class="errorEmpty" *ngIf="myForm.get('retypePassword')?.errors?.['required']"> You should retype your password</div>
+                        <div  class="errorEmpty" *ngIf="myForm.get('retypePassword')?.errors?.['matchPasswords']"> Passwords must be matched</div>
+                    </div>
             </div>
 
             <!-- Email Input -->
@@ -105,6 +109,15 @@
             <div class="form-group-inline">
                 <input type="checkbox" id="terms" name="terms" formControlName="terms">
                 <label for="terms">Agree to terms and conditions</label>
+            </div>
+            <div class="form-group-inline">
+                <label for="lang">Languages</label>
+                <input type="text" id="lang" name="languages" formControlName="languages" *ngFor="let lang of languages.controls; let i=index;"  [formControlName]="i"/>
+                
+               
+
+                <button type="button" (click)="addLang()">Add Language</button>
+
             </div>
 
             <!-- Submit Button -->
