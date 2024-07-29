@@ -1,0 +1,116 @@
+<div class="body">
+    <div class="form-container">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <h2>Join US</h2>
+
+            <!-- Text Input -->
+            <div class="form-group">
+                <label for="text">Username</label>
+                <input type="text" placeholder="Username" name="username" formControlName="username">
+                <div class="errorEmpty" *ngIf="myForm.get('username')?.touched && !myForm.get('username')?.valid">
+                    <div *ngIf="myForm.get('username')?.errors?.['required']">Username is required</div>
+                    <div *ngIf="myForm.get('username')?.errors?.['minlength']">Minimum length is 3</div>
+                </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter password" name="password" formControlName="password">
+                <div class="errorEmpty" *ngIf="myForm.get('password')?.touched && !myForm.get('password')?.valid">
+                    <div *ngIf="myForm.get('password')?.errors?.['required']">Password is required</div>
+                    <div *ngIf="myForm.get('password')?.errors?.['passwordStrength']">Password is not valid</div>
+                </div>
+
+            </div>
+
+            <!-- Re-type Password Input -->
+            <div class="form-group">
+                <label for="password">Re-type Password</label>
+                <input type="password" placeholder="Re-type Password" name="retypePassword"
+                    formControlName="retypePassword">
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter email" name="email" formControlName="email">
+                <div class="errorEmpty" *ngIf="myForm.get('email')?.touched && !myForm.get('email')?.valid">
+                    <div *ngIf="myForm.get('email')?.errors?.['required']">Email is required</div>
+                    <div *ngIf="myForm.get('email')?.errors?.['email']">Email is not valid</div>
+                </div>
+
+            </div>
+
+            <!-- Number Input -->
+            <div class="form-group">
+                <label for="number">Age</label>
+                <input type="number" placeholder="Age" name="age" formControlName="age">
+            </div>
+
+            <!-- Date Input -->
+            <div class="form-group">
+                <label for="date">Birth Date</label>
+                <input type="date" name="birthDate" formControlName="birthDate">
+            </div>
+
+            <!-- URL Input -->
+            <div class="form-group">
+                <label for="url">LinkedIn URL</label>
+                <input type="url" placeholder="LinkedIn URL" name="linkedInURL" formControlName="linkedInURL">
+            </div>
+
+            <!-- Telephone Input -->
+            <div class="form-group">
+                <label for="tel">Phone NO.</label>
+                <input type="tel" placeholder="Phone NO." name="phone" formControlName="phone">
+            </div>
+
+            <!-- File Input -->
+            <div class="form-group">
+                <label for="file">Your C.V</label>
+                <input type="file" name="cv" formControlName="cv">
+            </div>
+
+            <!-- Radio Buttons -->
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-group-inline">
+                    <input type="radio" id="radio1" name="gender" value="female" formControlName="gender">
+                    <label for="radio1">Female</label>
+                </div>
+                <div class="form-group-inline">
+                    <input type="radio" id="radio2" name="gender" value="male" formControlName="gender">
+                    <label for="radio2">Male</label>
+                </div>
+            </div>
+
+            <!-- Select Dropdown -->
+            <div class="form-group">
+                <label for="select">Status</label>
+                <select id="select" name="status" formControlName="status">
+                    <option value="graduate">Graduate</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label for="textarea">About you</label>
+                <textarea id="textarea" name="about" rows="4" placeholder="About You"
+                    formControlName="about"></textarea>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-group-inline">
+                <input type="checkbox" id="terms" name="terms" formControlName="terms">
+                <label for="terms">Agree to terms and conditions</label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group text-center">
+                <input type="submit" value="Join Us" [disabled]="myForm.invalid" />
+            </div>
+        </form>
+    </div>
+</div>
