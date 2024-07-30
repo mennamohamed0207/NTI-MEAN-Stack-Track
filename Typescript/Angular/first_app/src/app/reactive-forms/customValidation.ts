@@ -18,13 +18,10 @@ export class customValidator {
         }
     }
     static matchPassword(control: AbstractControl): ValidationErrors | null {
-       
-            const password = control.get('password')?.value;
-            const retypePassword = control.get('retypePassword')?.value;
-            if (password !== retypePassword) {
-                return { matchPasswords: true };
-            }
-            return null;
-        
-    }
+        const password = control.get('password');
+        const retypePassword = control.get('retypePassword');
+        if (!password || !retypePassword) return null;
+    
+        return password.value === retypePassword.value ? null : { passwordMismatch: true };
+      }
 }

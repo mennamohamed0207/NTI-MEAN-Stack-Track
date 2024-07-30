@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { customValidator } from './customValidation';
 
-
 @Component({
   selector: 'app-reactive-forms',
   templateUrl: './reactive-forms.component.html',
@@ -10,7 +9,6 @@ import { customValidator } from './customValidation';
 })
 export class ReactiveFormsComponent implements OnInit {
   myForm!: FormGroup;
-  // languages: FormArray = new FormArray([new FormControl(null)]);
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -27,20 +25,19 @@ export class ReactiveFormsComponent implements OnInit {
       status: new FormControl(null),
       cv: new FormControl(null),
       terms: new FormControl(null),
-      //array of languages
       languages: new FormArray([new FormControl(null)]),
     }, { validators: customValidator.matchPassword });
   }
+
   get languages() {
-    let lang = this.myForm.get('languages') as FormArray;
-    return lang;
+    return this.myForm.get('languages') as FormArray;
   }
 
   addLang() {
     this.languages.push(new FormControl(null));
-
   }
+
   onSubmit() {
-    console.log(this.myForm.controls['email']);
+    console.log(this.myForm.value);
   }
 }
