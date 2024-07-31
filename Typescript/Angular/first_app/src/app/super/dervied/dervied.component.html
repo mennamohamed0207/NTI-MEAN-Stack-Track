@@ -1,8 +1,31 @@
-<div *ngIf="product">
+<!-- <div *ngIf="product">
     <h2>{{product.name}}</h2>
     <h3>{{product.age}}</h3>
     <h3>{{product.id}}</h3>
     <button (click)="sendMsg()">Like</button>
 
 
+</div> -->
+<div [innerHTML]="this.htmlcontent"></div>
+<div [ngSwitch]="mySwitch">
+    <div *ngSwitchCase="'case1'">Case 1</div>
+    <div *ngSwitchCase="'case2'">Case 2</div>
+    <div *ngSwitchDefault>This is default case</div>
+</div>
+<br>
+<br>
+<br>
+<button (click)="changeCase()">Click</button>
+
+
+<br>
+<br>
+<select [(ngModel)]="selectedType">
+    <option *ngFor="let type of userType" [ngValue]="type">{{type}}</option>
+</select>
+<div [ngSwitch]="selectedType">
+    <div *ngSwitchCase="'admin'">Admin</div>
+    <div *ngSwitchCase="'user'">User</div>
+    <div *ngSwitchCase="'student'">Student</div>
+    <div *ngSwitchDefault>This is default case</div>
 </div>
