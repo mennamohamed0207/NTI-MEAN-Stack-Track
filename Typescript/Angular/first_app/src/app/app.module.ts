@@ -10,6 +10,9 @@ import { FormsComponent } from './forms/forms.component';
 import { UsingPipesComponent } from './using-pipes/using-pipes.component';
 import { noSpace } from './pipes/noSpace.pipe';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { ParentComponent } from './parent/parent.component';
+import { SuperComponent } from './super/super.component';
+import { DerviedComponent } from './super/dervied/dervied.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     FormsComponent,
     UsingPipesComponent,
     noSpace,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    ParentComponent,
+    SuperComponent,
+    DerviedComponent
   ],
   imports: [
     BrowserModule,

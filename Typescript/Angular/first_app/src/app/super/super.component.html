@@ -1,0 +1,6 @@
+<h1>{{msg}}</h1>
+<div *ngFor="let tech of objs; let i=index">
+    <app-dervied [product]="tech" (like)="onLike()">
+    </app-dervied>
+    <button (click)="addProduct()">Add Product</button>
+</div>
