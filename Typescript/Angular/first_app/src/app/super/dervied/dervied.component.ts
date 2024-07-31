@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-dervied',
   templateUrl: './dervied.component.html',
-  styleUrl: './dervied.component.css'
+  styleUrl: './dervied.component.css',
+  providers:[DataService]
 })
 export class DerviedComponent {
   @Input()product?: {name:string,age:number,id:number};
@@ -24,5 +26,9 @@ export class DerviedComponent {
   changeCase()
   {
     this.mySwitch='';
+  }
+  constructor(private dataService:DataService)
+  {
+    console.log(this.dataService.returnData());
   }
 }

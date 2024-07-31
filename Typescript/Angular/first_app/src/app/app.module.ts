@@ -32,9 +32,7 @@ import { DerviedComponent } from './super/dervied/dervied.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule  ],
-  providers: [
-    provideClientHydration()
-  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
