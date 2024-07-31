@@ -13,6 +13,8 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
 import { ParentComponent } from './parent/parent.component';
 import { SuperComponent } from './super/super.component';
 import { DerviedComponent } from './super/dervied/dervied.component';
+import { DataFromComponent } from './data-from/data-from.component';
+import { DataToComponent } from './data-to/data-to.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DerviedComponent } from './super/dervied/dervied.component';
     ReactiveFormsComponent,
     ParentComponent,
     SuperComponent,
-    DerviedComponent
+    DerviedComponent,
+    DataFromComponent,
+    DataToComponent
   ],
   imports: [
     BrowserModule,
