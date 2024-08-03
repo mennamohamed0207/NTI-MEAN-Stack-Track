@@ -1,0 +1,38 @@
+aside {
+    background-color: #f4f4f4;
+    padding: 15px;
+    width: 200px;
+    position: none;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  aside nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  aside nav ul li {
+    margin: 10px 0;
+  }
+  
+  aside nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .active {
+    font-weight: bold;
+    color: red!important;
+
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    aside {
+      width: 100%;
+      height: auto; 
+      position: relative;
+    }
+  }
+  
