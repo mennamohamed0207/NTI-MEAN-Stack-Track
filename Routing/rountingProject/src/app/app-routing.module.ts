@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { authenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
   {
@@ -30,12 +31,16 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component:DashboardComponent
+    component: DashboardComponent,
+    canActivate: [
+      authenticationGuard
+    ]
   }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

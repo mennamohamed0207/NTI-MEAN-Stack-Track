@@ -25,6 +25,8 @@ export class AuthService {
       password: password
     }).pipe(
       tap(response => {
+        console.log(response);
+        
         const token = response.token;
         if (token) {
           localStorage.setItem('accessToken', token);
@@ -34,6 +36,8 @@ export class AuthService {
           console.log(response);
           this.tokenSubject.next(token);
         } else {
+          console.log("token",token);
+          
           this.tokenSubject.next(null);
         }
       })
