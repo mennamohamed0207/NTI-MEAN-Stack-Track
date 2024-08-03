@@ -10,6 +10,7 @@ import { DataService } from '../dataservices/data.service';
 export class OurServicesComponent {
   constructor(private _dataService: DataService) {}
   products: {
+    userId:number;
     title: string;
     price: number;
     description: string;
@@ -26,5 +27,23 @@ export class OurServicesComponent {
       this.products = data['products'];
       // console.log(this.products);
     });
+  }
+  addProduct() {
+    this._dataService
+      .addProduct({ 
+        userId: 2,
+        title: 'Product 1',
+        price: 10,
+        description: 'This is product 1',
+        category: 'Category 1',
+        images: ['image1.jpg', 'image2.jpg'],
+        rating: 4.5,
+        stock: 100,
+        brand: 'Brand 1',
+        discountPercentage: 10
+      })
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }
