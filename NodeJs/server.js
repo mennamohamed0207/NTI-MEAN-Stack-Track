@@ -73,3 +73,26 @@ fs.rename("./folder2/file.txt", "./folder2/file1.txt", (err) => {
         console.log("file renamed");
     }
 })
+//------------------------------------------------------remove file-------------------------------------------
+fs.rm("./folder2/file1.txt",{ recursive: true ,force:true}, (err) => {
+    if (err) {
+        console.log(err);
+        
+    }else console.log("file deleted");
+    
+})
+
+// ------------------------------------------------------copy file-------------------------------------------
+fs.copyFile("./folder2/file.txt", "./folder2/file2.txt", (err) => {
+    if (err) {
+        console.log(err);
+        
+    }else console.log("file copied");
+})
+
+// ------------------------------------------------------access file-------------------------------------------
+fs.access("./folder2/file2.txt",constants.F_W_OK, (err) => {
+    if (err) {
+        console.log(err);
+    }else console.log("file access");
+})
