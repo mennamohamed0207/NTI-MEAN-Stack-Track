@@ -1,20 +1,75 @@
-// const express=require('./node_modules/express');
-// const app=new express();
-
-// app.get('/',(req,res)=>{
-//     console.log('hello');
-// });
-// app.post('/hello',(req,res)=>{
-//     console.log('hello post');
-//     res.send("<h1>Hello</h1>");
-// })
-// app.listen(3000,()=>console.log('server running on port 3000'));
+const fs = require("fs");
+//------------------------------------------------------Make directory-------------------------------------------
+fs.mkdir("./folder", { recursive: true })
+  .then(() => {
+    console.log("folder created");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 
+//------------------------------------------------------Remove directory-------------------------------------------
 
-// const Student =require("./student");
+fs.rmdir("./folder", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("folder deleted");
+  }
+});
 
-// const student = new Student("menna","22");
-// console.log (student.getStudent());
 
+//------------------------------------------------------Rename directory-------------------------------------------
 
+fs.rename("./folder", "./folder2", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("folder renamed");
+  }
+})
+
+//------------------------------------------------------write in File-------------------------------------------
+
+fs.writeFile("./folder2/file.txt", "hello world", (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("file created");
+    }
+})
+
+//------------------------------------------------------Append file-------------------------------------------
+fs.appendFile("./folder2/file.txt", "hello world", (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("file created");
+    }
+})
+//------------------------------------------------------Read file-------------------------------------------
+fs.readFile("./folder2/file.txt", "utf-8", (err, data) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+})
+//------------------------------------------------------Delete file-------------------------------------------
+fs.unlink("./folder2/file.txt", (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("file deleted");
+    }
+})
+
+//------------------------------------------------------Rename file-------------------------------------------
+fs.rename("./folder2/file.txt", "./folder2/file1.txt", (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("file renamed");
+    }
+})
