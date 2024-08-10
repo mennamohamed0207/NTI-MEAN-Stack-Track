@@ -1,0 +1,8 @@
+<p>upload-files works!</p>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" >
+    <input type="file"  (change)="onFileChange($event)">
+    <input type="text" formControlName="name">
+    <input type="text" formControlName="id">
+    <button type="submit">Submit</button>
+</form>
