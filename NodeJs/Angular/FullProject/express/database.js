@@ -5,7 +5,7 @@ const port=3000;
 app.use(express.json());
 
 const connecting=()=>{
-    mongoose.connect('mongodb+srv://mennamohamed0207:PZN2oliMRnf8KqmL@cluster0.ue0sm7q.mongodb.net/Portfolio').then(()=>{
+    mongoose.connect().then(()=>{
         
         console.log('database connected');
     }).catch((err)=>{
