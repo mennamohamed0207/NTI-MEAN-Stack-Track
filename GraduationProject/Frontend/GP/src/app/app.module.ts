@@ -20,8 +20,7 @@ import { EducationComponent } from './education/education.component';
     ContactComponent,
     ExperienceComponent,
     ProjectsComponent,
-    EducationComponent
-  ],
+    EducationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule
