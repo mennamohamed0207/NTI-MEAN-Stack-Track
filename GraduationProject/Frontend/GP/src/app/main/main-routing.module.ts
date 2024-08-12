@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { ExperienceComponent } from './experience/experience.component';
-import { SkillsComponent } from './skills/skills.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { EducationComponent } from './education/education.component';
+import { HomeComponent } from '../home/home.component';
+import { ContactComponent } from '../contact/contact.component';
+import { ExperienceComponent } from '../experience/experience.component';
+import { SkillsComponent } from '../skills/skills.component';
+import { ProjectsComponent } from '../projects/projects.component';
+import { EducationComponent } from '../education/education.component';
 
 const routes: Routes = [
   {
@@ -31,8 +31,9 @@ const routes: Routes = [
   }
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class MainRoutingModule { }
